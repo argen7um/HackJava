@@ -1,0 +1,29 @@
+//IsPalindrome - Works - Done
+public class ex09 {
+
+	static String getLargestPalindrome(long N) {
+		String pal;
+		int ura_count = 0;
+		pal = Long.toString(N);
+
+		int half = pal.length() / 2;
+		for (int i = 0; i < half; i++) {
+			if (pal.charAt(i) == pal.charAt(pal.length() - 1 - i)) {
+				
+				ura_count++;
+			}
+		}
+		if (ura_count == half) {
+			return "URA It's a palindrome!";
+		}
+
+		return "It is NOT a palindrome!";
+	}
+
+	public static void main(String[] args) {
+
+		System.out.println(getLargestPalindrome(99999999999993999L));
+
+	}
+
+}
