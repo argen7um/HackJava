@@ -1,0 +1,68 @@
+package week06_2016_02_user_input_checker;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class UserInputReceiver {
+	String getInputName() {
+		String userInput = "";
+		Scanner in = new Scanner(System.in);
+		try {
+			System.out.println("Please type a name to validate: ");
+			userInput = in.nextLine();
+
+		} catch (InputMismatchException exception) {
+			System.out.println("Not a valid name!");
+			return "";
+
+		}
+
+		finally {
+			in.close();
+		}
+		return userInput;
+
+	}
+
+	int getInputAge() {
+
+		int userInput;
+		Scanner in = new Scanner(System.in);
+		try {
+			System.out.println("Please type a number to validate: ");
+			userInput = in.nextInt();
+
+		} catch (InputMismatchException exception) {
+			System.out.println("Not a valid number!");
+			return 0;
+
+		}
+
+		finally {
+			in.close();
+		}
+		return userInput;
+
+	}
+
+	String getInputNum() {
+
+		String userInput;
+		Scanner in = new Scanner(System.in);
+		try {
+			System.out.println("Please type a number to validate: ");
+			userInput = in.nextLine();
+
+		} catch (InputMismatchException exception) {
+			System.out.println("Not a valid number!");
+			return "";
+
+		}
+
+		finally {
+			in.close();
+		}
+		return userInput;
+
+	}
+}
