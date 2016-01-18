@@ -1,15 +1,15 @@
-//Kth smallest element - Works - DONE
+////Kth smallest element - Works - DONE
 
-public class ex04 {
+public class KthSmallestElement {
 	private static int[] a;
-	private static int n;
+	private static int size;
 	private static int left;
 	private static int right;
 	private static int largest;
 
 	public static void buildheap(int[] a) {
-		n = a.length - 1;
-		for (int i = n / 2; i >= 0; i--) {
+		size = a.length - 1;
+		for (int i = size / 2; i >= 0; i--) {
 			maxheap(a, i);
 		}
 	}
@@ -17,13 +17,13 @@ public class ex04 {
 	public static void maxheap(int[] a, int i) {
 		left = 2 * i;
 		right = 2 * i + 1;
-		if (left <= n && a[left] > a[i]) {
+		if (left <= size && a[left] > a[i]) {
 			largest = left;
 		} else {
 			largest = i;
 		}
 
-		if (right <= n && a[right] > a[largest]) {
+		if (right <= size && a[right] > a[largest]) {
 			largest = right;
 		}
 		if (largest != i) {
@@ -38,22 +38,22 @@ public class ex04 {
 		a[j] = t;
 	}
 
-	public static void sort(int[] a0) {
-		a = a0;
-		buildheap(a);
+	public static void sort(int[] numbers) {
+		a = numbers;
+		buildheap(numbers);
 
-		for (int i = n; i > 0; i--) {
+		for (int i = size; i > 0; i--) {
 			exchange(0, i);
-			n = n - 1;
+			size -= 1;
 			maxheap(a, 0);
 		}
 	}
 
 	public static void main(String[] args) {
-		int[] a1 = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
-		int k = 4;
-		sort(a1);
-		System.out.print("The Kth smallest element is: " + a1[k - 1] + " ");
+		int[] numbers = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
+		int needle = 6;
+		sort(numbers);
+		System.out.print("The Kth smallest element is: " + numbers[needle - 1] + " ");
 
 	}
 }
